@@ -509,38 +509,65 @@ table {
   width: 88px;
   height: 40px;
   display: flex;
-  border: 1px solid rgba(166,166,166,.45)
+  position: relative
 }
 .quantity__button {
-  flex: 0 0 30px;
+  flex: 0 0 33px;
+  width: 2.0625rem;
+  height: 2.0625rem;
+  background-color: var(--fnSeparateElements);
+  border-radius: 50%;
   position: relative;
-  cursor: pointer
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 .quantity__button::after,
 .quantity__button::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transition: all .3s ease 0s;
-  margin: 0 0 0 -4.5px;
-  background-color: #a6a6a6;
-  width: 9px;
-  height: 1px
+  transition: all .3s ease 0s
+}
+.quantity__button--plus {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease-in
 }
 .quantity__button--plus::before {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg)
+  content: "+";
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--bgPopupConfirmationBlock)
+}
+.quantity__button--minus {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all .2s ease-in
+}
+.quantity__button--minus::before {
+  content: "-";
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--bgPurchasesValue)
 }
 .quantity__input {
   flex: 1 1 auto
 }
 .quantity__input input {
   height: 100%;
-  color: #a6a6a6;
-  font-size: 12px;
+  height: 33px;
+  color: var(--fnSocialIcon);
+  font-size: 18px;
   width: 100%;
-  text-align: center
+  text-align: center;
+  border-radius: 83.099px;
+  background: var(--bgGoggleBtnPopup)
 }
 .qs-datepicker-container {
   margin: 5px;
@@ -2185,6 +2212,11 @@ body::after {
 .dropdown--speaking:not(:last-child) {
   margin-bottom: clamp(1.875rem,1.125rem + 3.75vw,3.75rem)
 }
+.tabs__holder {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
 .tabs__inner-group-dish {
   display: flex;
   width: 100%;
@@ -2527,19 +2559,148 @@ body::after {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  row-gap: 1.6875rem;
+  row-gap: .625rem;
   max-width: 18.9375rem;
   width: 100%
 }
-.сhoosing-eat {
+.form-eatorder__results:not(:last-child) {
+  margin-bottom: clamp(1.625rem,1.17rem + 2.27vw,2.875rem)
+}
+.form-eatorder__border-speaking {
   padding: 0 clamp(.625rem,.25rem + 1.88vw,1.563rem)
+}
+.form-eatorder__box-button {
+  max-width: 17.6875rem;
+  border-radius: 15px;
+  background: var(--bgPopupConfirmationBlock);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: all .2s ease-in
+}
+.form-eatorder__general-btn-order-list {
+  color: var(--fnSeparateElements);
+  font-size: clamp(1rem,.795rem + 1.02vw,1.563rem);
+  font-weight: 600;
+  line-height: 1.5;
+  padding: clamp(1rem,.909rem + .45vw,1.25rem) .625rem
+}
+.сhoosing-eat {
+  padding: 0 clamp(.625rem,.25rem + 1.88vw,1.563rem);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: 2.5rem
+}
+.сhoosing-eat__product-wrap {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: 1.875rem
 }
 .сhoosing-eat__option-title {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  row-gap: 1.25rem
+  row-gap: 1.25rem;
+  -webkit-column-gap: .75rem;
+  -moz-column-gap: .75rem;
+  column-gap: .75rem
+}
+.сhoosing-eat__name-food {
+  width: 100%;
+  height: 50px;
+  color: var(--fnSocialIcon);
+  font-size: clamp(.875rem,.6rem + 1.38vw,1.563rem);
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0 .3125rem
+}
+.сhoosing-eat__name-food::-webkit-input-placeholder {
+  color: var(--fnSocialIcon);
+  font-size: clamp(.875rem,.6rem + 1.38vw,1.563rem);
+  font-weight: 600;
+  line-height: 1.5
+}
+.сhoosing-eat__name-food:-ms-input-placeholder {
+  color: var(--fnSocialIcon);
+  font-size: clamp(.875rem,.6rem + 1.38vw,1.563rem);
+  font-weight: 600;
+  line-height: 1.5
+}
+.сhoosing-eat__name-food::-ms-input-placeholder {
+  color: var(--fnSocialIcon);
+  font-size: clamp(.875rem,.6rem + 1.38vw,1.563rem);
+  font-weight: 600;
+  line-height: 1.5
+}
+.сhoosing-eat__name-food::placeholder {
+  color: var(--fnSocialIcon);
+  font-size: clamp(.875rem,.6rem + 1.38vw,1.563rem);
+  font-weight: 600;
+  line-height: 1.5
+}
+.сhoosing-eat__delete {
+  font-family: var(--fontFamilyIconsFont);
+  color: var(--bgPurchasesValue);
+  font-size: 1.5rem;
+  transition: all .2s ease-in
+}
+.сhoosing-eat__part-goods {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-column-gap: 1.25rem;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem
+}
+.сhoosing-eat__food-sum {
+  width: 100%;
+  text-align: right;
+  color: var(--fnPhrase);
+  font-size: clamp(.875rem,.625rem + 1.25vw,1.563rem);
+  font-weight: 500;
+  line-height: 2
+}
+.сhoosing-eat__food-sum::-webkit-input-placeholder {
+  color: var(--fnPhrase);
+  font-size: clamp(.875rem,.625rem + 1.25vw,1.563rem);
+  font-weight: 500;
+  line-height: 2
+}
+.сhoosing-eat__food-sum:-ms-input-placeholder {
+  color: var(--fnPhrase);
+  font-size: clamp(.875rem,.625rem + 1.25vw,1.563rem);
+  font-weight: 500;
+  line-height: 2
+}
+.сhoosing-eat__food-sum::-ms-input-placeholder {
+  color: var(--fnPhrase);
+  font-size: clamp(.875rem,.625rem + 1.25vw,1.563rem);
+  font-weight: 500;
+  line-height: 2
+}
+.сhoosing-eat__food-sum::placeholder {
+  color: var(--fnPhrase);
+  font-size: clamp(.875rem,.625rem + 1.25vw,1.563rem);
+  font-weight: 500;
+  line-height: 2
+}
+.quantity {
+  flex: 0 0 40%
 }
 .voucher__subtitle {
   color: var(--fnSocialIcon);
@@ -2565,7 +2726,20 @@ body::after {
   border-radius: .8125rem;
   background: var(--bgInputCodeVouncher);
   padding: 0 .625rem;
-  text-align: center
+  text-align: center;
+  color: var(--bgFnOtherItem)
+}
+.voucher__input-eat-item::-webkit-input-placeholder {
+  color: var(--bgFnOtherItem)
+}
+.voucher__input-eat-item:-ms-input-placeholder {
+  color: var(--bgFnOtherItem)
+}
+.voucher__input-eat-item::-ms-input-placeholder {
+  color: var(--bgFnOtherItem)
+}
+.voucher__input-eat-item::placeholder {
+  color: var(--bgFnOtherItem)
 }
 .voucher__input-eat-item:focus {
   outline: .0625rem solid var(--bgButtonDateInputApply)
@@ -2603,6 +2777,8 @@ body::after {
   flex: 0 0 46%
 }
 .result__money {
+  width: 100%;
+  text-align: right;
   color: var(--fnPhrase);
   font-size: clamp(.875rem,.625rem + 1.25vw,1.563rem);
   font-weight: 500;
@@ -3675,9 +3851,23 @@ body::after {
   [data-rating=set] .rating__item:hover~.rating__item span {
     display: none
   }
-  .quantity__button:hover::after,
-  .quantity__button:hover::before {
-    background-color: rgba(0,0,0,.5)
+  .quantity__button--plus {
+    cursor: pointer
+  }
+  .quantity__button--plus:hover {
+    background-color: var(--bgPopupConfirmationBlock)
+  }
+  .quantity__button--plus:hover::before {
+    color: var(--fnSeparateElements)
+  }
+  .quantity__button--minus {
+    cursor: pointer
+  }
+  .quantity__button--minus:hover {
+    background-color: var(--bgPurchasesValue)
+  }
+  .quantity__button--minus:hover::before {
+    color: var(--fnSeparateElements)
   }
   .qs-datepicker .qs-square {
     cursor: pointer
@@ -4164,6 +4354,18 @@ body::after {
   }
   .swiper-order__box-group-btn:hover {
     background-color: var(--bgHoverButton)
+  }
+  .form-eatorder__box-button {
+    cursor: pointer
+  }
+  .form-eatorder__box-button:hover {
+    background: var(--bgPopupConfirmationBlockActive)
+  }
+  .сhoosing-eat__delete {
+    cursor: pointer
+  }
+  .сhoosing-eat__delete:hover {
+    color: var(--bgButtonDateInputApply)
   }
   .voucher__confirmation {
     cursor: pointer
